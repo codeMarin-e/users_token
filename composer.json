@@ -1,0 +1,35 @@
+{
+    "name": "marinar/users_token",
+    "description": "Users token",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Marin Ivanov",
+            "email": "marin@dev.nddesign.no"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Marinar\\UsersToken\\": "src/"
+        }
+    },
+
+    "require": {
+        "marinar/users": "*"
+    },
+    "extra": {
+        "marinar": {
+            "module": false,
+            "plugin": false,
+            "addon_to": [
+                "marinar/users"
+            ]
+        },
+        "laravel": {
+            "aliases": {
+                "MarinarUsersToken": "Marinar\\UsersToken\\MarinarUsersToken"
+            }
+        }
+    }
+}
