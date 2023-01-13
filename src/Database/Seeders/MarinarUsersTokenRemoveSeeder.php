@@ -1,11 +1,8 @@
 <?php
     namespace Marinar\UsersToken\Database\Seeders;
 
-    use App\Models\Package;
     use Illuminate\Database\Seeder;
     use Marinar\UsersToken\MarinarUsersToken;
-    use Symfony\Component\Process\Exception\ProcessFailedException;
-    use Symfony\Component\Process\Process;
 
     class MarinarUsersTokenRemoveSeeder extends Seeder {
 
