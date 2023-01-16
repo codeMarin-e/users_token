@@ -1,19 +1,18 @@
 <?php
     namespace Marinar\UsersToken\Database\Seeders;
 
-    use App\Models\Package;
     use Illuminate\Database\Seeder;
     use Marinar\UsersToken\MarinarUsersToken;
-    use Symfony\Component\Process\Exception\ProcessFailedException;
-    use Symfony\Component\Process\Process;
 
     class MarinarUsersTokenCleanInjectsSeeder extends Seeder {
 
         use \Marinar\Marinar\Traits\MarinarSeedersTrait;
 
-        public $injectClass = MarinarUsersTokenInjectsSeeder::class;
+        public $injectClass = '';
 
         public function run() {
+            $this->injectClass = MarinarUsersToken::injects();
+
             $this->getRefComponents();
 
             $this->clearAddonInjects();
