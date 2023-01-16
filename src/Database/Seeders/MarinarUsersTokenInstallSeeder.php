@@ -18,6 +18,7 @@
                 \Marinar\UsersToken\Database\Seeders\MarinarUsersTokenCleanInjectsSeeder::class,
                 \Marinar\UsersToken\Database\Seeders\MarinarUsersTokenInjectsSeeder::class,
             ]);
+            $this->giveGitPermissions(\Marinar\UsersToken\MarinarUsersToken::getPackageMainDir());
             $this->refComponents->info("Done!");
         }
 
