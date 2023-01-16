@@ -11,6 +11,8 @@
 
         use \Marinar\Marinar\Traits\MarinarSeedersTrait;
 
+        public static $alreadyInjectedInLine = [];
+
         public function run() {
             $this->getRefComponents();
 

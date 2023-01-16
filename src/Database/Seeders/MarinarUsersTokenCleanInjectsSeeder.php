@@ -11,6 +11,8 @@
 
         use \Marinar\Marinar\Traits\MarinarSeedersTrait;
 
+        public $injectClass = MarinarUsersTokenInjectsSeeder::class;
+
         public function run() {
             $this->getRefComponents();
 
