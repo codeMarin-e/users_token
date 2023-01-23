@@ -9,29 +9,13 @@
         use \Marinar\Marinar\Traits\MarinarSeedersTrait;
 
         public function run() {
-            $this->getRefComponents();
 
-            $this->stubFiles();
-            $this->dbMigrate();
+            if(!in_array(env('APP_ENV'), ['dev', 'local'])) return;
+            static::$packageName = 'marinar_users_token';
+            static::$packageDir = MarinarUsersToken::getPackageMainDir();
 
-            $this->call([
-                \Marinar\UsersToken\Database\Seeders\MarinarUsersTokenCleanInjectsSeeder::class,
-                \Marinar\UsersToken\Database\Seeders\MarinarUsersTokenInjectsSeeder::class,
-            ]);
-            $this->giveGitPermissions(\Marinar\UsersToken\MarinarUsersToken::getPackageMainDir());
+            $this->autoInstall();
+
             $this->refComponents->info("Done!");
         }
-
-        private function stubFiles() {
-            $this->copyStubs(MarinarUsersToken::getPackageMainDir().DIRECTORY_SEPARATOR.'stubs');
-        }
-
-        private function dbMigrate() {
-            $this->dbMigrateDir(implode(DIRECTORY_SEPARATOR, [
-                MarinarUsersToken::getPackageMainDir(),
-                'stubs', 'project', 'database', 'migrations',
-            ]));
-        }
-
-
     }

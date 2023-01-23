@@ -1,8 +1,7 @@
 <?php
 namespace Marinar\UsersToken;
 
-use Marinar\UsersToken\Database\Seeders\MarinarUsersTokenCleanInjectsSeeder;
-use Marinar\UsersToken\Database\Seeders\MarinarUsersTokenInjectsSeeder;
+use Marinar\UsersToken\Database\Seeders\MarinarUsersTokenInstallSeeder;
 
 class MarinarUsersToken {
 
@@ -10,11 +9,7 @@ class MarinarUsersToken {
         return __DIR__;
     }
 
-    public static function cleanInjects() {
-        return MarinarUsersTokenCleanInjectsSeeder::class;
-    }
-
     public static function injects() {
-        return MarinarUsersTokenInjectsSeeder::class;
+        return MarinarUsersTokenInstallSeeder::class;
     }
 }
