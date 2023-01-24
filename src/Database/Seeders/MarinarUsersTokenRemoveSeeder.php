@@ -9,38 +9,18 @@
         use \Marinar\Marinar\Traits\MarinarSeedersTrait;
 
         public function run() {
-            $this->getRefComponents();
+            if(!in_array(env('APP_ENV'), ['dev', 'local'])) return;
+            static::$packageName = 'marinar_users_token';
+            static::$packageDir = MarinarUsersToken::getPackageMainDir();
 
-            $this->dbMigrateRollback();
-            $this->clearDB();
-            $this->clearFiles();
-
-            $this->call([
-                \Marinar\UsersToken\Database\Seeders\MarinarUsersTokenCleanInjectsSeeder::class,
-            ]);
+            $this->autoRemove();
 
             $this->refComponents->info("Done!");
-        }
-
-        private function dbMigrateRollback() {
-            $this->dbMigrateRollbackDir(implode(DIRECTORY_SEPARATOR, [
-                MarinarUsersToken::getPackageMainDir(),
-                'stubs', 'project', 'database', 'migrations',
-            ]));
         }
 
         public function clearDB() {
             $this->refComponents->task("Clear DB", function() {
                 \Laravel\Sanctum\PersonalAccessToken::where('name', 'packages')->delete();
-                return true;
-            });
-        }
-
-        private function clearFiles() {
-//            if(!$this->command->confirm('Are you sure you want to delete `users token` files?', true)) return false;
-            $this->refComponents->task("Clear stubs", function() {
-                $copyDir = MarinarUsersToken::getPackageMainDir().DIRECTORY_SEPARATOR.'stubs';
-                static::removeStubFiles($copyDir, $copyDir, true);
                 return true;
             });
         }
