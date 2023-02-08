@@ -1,5 +1,5 @@
 <?php
-    namespace Marinar\UsersToken\Traits;
+    namespace App\Traits;
 
     trait UserTokenTrait {
 

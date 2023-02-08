@@ -5,7 +5,7 @@ use Marinar\UsersToken\MarinarUsersToken;
 $packageDir = MarinarUsersToken::getPackageMainDir();
 return [
     implode(DIRECTORY_SEPARATOR, [ base_path(), 'app', 'Models', 'User.php']) => [
-        "// @HOOK_USER_TRAITS" => "\tuse \\Marinar\\UsersToken\\Traits\\UserTokenTrait; \n",
+        "// @HOOK_TRAITS" => "\tuse \\App\\Traits\\UserTokenTrait; \n",
     ],
     implode(DIRECTORY_SEPARATOR, [ base_path(), 'app', 'Http', 'Controllers', 'Admin', 'UserController.php']) => [
         "// @HOOK_USERS_STORE_END" => implode(DIRECTORY_SEPARATOR, [$packageDir, 'hooks', 'HOOK_USERS_STORE_END.php']),
