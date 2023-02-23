@@ -25,11 +25,6 @@
             "addon_to": [
                 "marinar/users"
             ]
-        },
-        "laravel": {
-            "aliases": {
-                "MarinarUsersToken": "Marinar\\UsersToken\\MarinarUsersToken"
-            }
         }
     }
 }
